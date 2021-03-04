@@ -14,5 +14,22 @@
  * limitations under the License.
  */
 
-include 'core', 'sample', 'plugin'
-//includeBuild 'plugin'
+package io.spur.testing.screenshot;
+
+import android.os.Bundle;
+import androidx.test.runner.AndroidJUnitRunner;
+import io.spur.testing.screenshot.ScreenshotRunner;
+
+public class CustomScreenshotTestRunner extends AndroidJUnitRunner {
+  @Override
+  public void onCreate(Bundle args) {
+    ScreenshotRunner.onCreate(this, args);
+    super.onCreate(args);
+  }
+
+  @Override
+  public void finish(int resultCode, Bundle results) {
+    ScreenshotRunner.onDestroy();
+    super.finish(resultCode, results);
+  }
+}

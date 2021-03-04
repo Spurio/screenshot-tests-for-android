@@ -16,7 +16,7 @@
 
 apply plugin: 'com.android.library'
 
-group = 'com.facebook.testing.screenshot'
+group = 'io.spur.testing.screenshot'
 
 android {
   compileSdkVersion fbversions.compileSdk
@@ -42,4 +42,4 @@ dependencies {
   androidTestImplementation deps.espresso
 }
 
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+//apply from: rootProject.file("gradle/gradle-mvn-push.gradle")

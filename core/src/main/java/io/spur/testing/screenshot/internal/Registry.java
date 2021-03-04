@@ -14,5 +14,28 @@
  * limitations under the License.
  */
 
-include 'core', 'sample', 'plugin'
-//includeBuild 'plugin'
+package io.spur.testing.screenshot.internal;
+
+import android.app.Instrumentation;
+import android.os.Bundle;
+
+/** Stores some of the static state. We bundle this into a class for easy cleanup. */
+public class Registry {
+  private static Registry sRegistry;
+  public Instrumentation instrumentation;
+  public Bundle arguments;
+
+  Registry() {}
+
+  public static Registry getRegistry() {
+    if (sRegistry == null) {
+      sRegistry = new Registry();
+    }
+
+    return sRegistry;
+  }
+
+  public static void clear() {
+    sRegistry = null;
+  }
+}

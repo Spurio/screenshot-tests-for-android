@@ -16,8 +16,6 @@
 
 apply plugin: 'com.android.library'
 
-group = 'com.facebook.testing.screenshot'
-
 android {
   compileSdkVersion fbversions.compileSdk
 
@@ -38,7 +36,7 @@ android {
 }
 
 afterEvaluate {
-  generateReleaseBuildConfig.enabled = false
+//  generateReleaseBuildConfig.enabled = false
 }
 
 dependencies {
@@ -58,4 +56,4 @@ dependencies {
   androidTestImplementation deps.hamcrest
 }
 
-apply from: rootProject.file("gradle/gradle-mvn-push.gradle")
+apply from: rootProject.file("gradle/publishing/publishing-core.gradle")

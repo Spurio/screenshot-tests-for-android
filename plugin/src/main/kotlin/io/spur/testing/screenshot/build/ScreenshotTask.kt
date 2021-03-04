@@ -14,5 +14,17 @@
  * limitations under the License.
  */
 
-include 'core', 'sample', 'plugin'
-//includeBuild 'plugin'
+package io.spur.testing.screenshot.build
+
+import com.android.build.gradle.api.TestVariant
+import org.gradle.api.DefaultTask
+
+open class ScreenshotTask : DefaultTask() {
+  protected lateinit var extension: ScreenshotsPluginExtension
+  protected lateinit var variant: TestVariant
+
+  open fun init(variant: TestVariant, extension: ScreenshotsPluginExtension) {
+    this.extension = extension
+    this.variant = variant
+  }
+}

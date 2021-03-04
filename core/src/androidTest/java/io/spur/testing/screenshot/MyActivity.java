@@ -14,5 +14,17 @@
  * limitations under the License.
  */
 
-include 'core', 'sample', 'plugin'
-//includeBuild 'plugin'
+package io.spur.testing.screenshot;
+
+import android.app.Activity;
+
+/** A dummy activity */
+public class MyActivity extends Activity {
+  public boolean destroyed = false;
+
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+    destroyed = true;
+  }
+}

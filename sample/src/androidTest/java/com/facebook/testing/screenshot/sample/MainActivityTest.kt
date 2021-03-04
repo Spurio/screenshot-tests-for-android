@@ -25,9 +25,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import androidx.test.rule.GrantPermissionRule
-import com.facebook.testing.screenshot.Screenshot
-import com.facebook.testing.screenshot.internal.ScreenshotImpl
-import com.facebook.testing.screenshot.internal.Tiling
+import io.spur.testing.screenshot.Screenshot
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
 import org.junit.Test

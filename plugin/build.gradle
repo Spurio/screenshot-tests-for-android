@@ -36,7 +36,9 @@ repositories {
   google()
 }
 
-final GENERATED_PACKAGE_NAME = "com.facebook.testing.screenshot.generated"
+group = "io.spur.testing.screenshot"
+
+final GENERATED_PACKAGE_NAME = "io.spur.testing.screenshot.generated"
 final GENERATED_BUILD_DIR =
     new File(
         projectDir.absolutePath,
@@ -52,7 +54,7 @@ task generateBuildConfig {
     BufferedWriter writer = configClass.newWriter()
     try {
       writer.writeLine("package $GENERATED_PACKAGE_NAME")
-      writer.writeLine("object $className { val VERSION = \"0.13.0.local\"}")
+      writer.writeLine("object $className { val VERSION = \"$VERSION_NAME\"}")
       writer.flush()
     } finally {
       writer.close()
@@ -70,8 +72,6 @@ dependencies {
   testImplementation deps.mockito
   testImplementation deps.hamcrest
 }
-
-group = 'com.facebook.testing.screenshot'
 
 compileKotlin {
   dependsOn generateBuildConfig
@@ -108,3 +108,5 @@ task py3Tests(type: Exec) {
   workingDir file('./src/py')
   commandLine 'python3', '-m', 'unittest', 'discover'
 }
+
+apply from: rootProject.file("gradle/publishing/publishing-plugin.gradle")
