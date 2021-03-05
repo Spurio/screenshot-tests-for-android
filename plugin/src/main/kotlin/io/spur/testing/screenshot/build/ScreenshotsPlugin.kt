@@ -64,7 +64,7 @@ class ScreenshotsPlugin : Plugin<Project> {
       if (screenshotExtensions.addDeps) {
         it.dependencies.add(
             "androidTestImplementation",
-            "$DEPENDENCY_GROUP:$DEPENDENCY_CORE:${ScreenshotTestBuildConfig.VERSION}")
+            "$DEPENDENCY_GROUP:$DEPENDENCY_CORE:0.1.7")
       }
     }
     val androidExtension = getProjectExtension(project)

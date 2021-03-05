@@ -54,7 +54,7 @@ task generateBuildConfig {
     BufferedWriter writer = configClass.newWriter()
     try {
       writer.writeLine("package $GENERATED_PACKAGE_NAME")
-      writer.writeLine("object $className { val VERSION = \"$VERSION_NAME\"}")
+      writer.writeLine("object $className { val VERSION = \"1.0.0\"}")
       writer.flush()
     } finally {
       writer.close()
@@ -109,4 +109,4 @@ task py3Tests(type: Exec) {
   commandLine 'python3', '-m', 'unittest', 'discover'
 }
 
-apply from: rootProject.file("gradle/publishing/publishing-plugin.gradle")
+apply from: rootProject.file("publishing-plugin.gradle")
