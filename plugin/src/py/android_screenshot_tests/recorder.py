@@ -60,6 +60,7 @@ class Recorder:
             canvasheight += self._get_image_size(join(self._input, input_file))[1]
 
         im = Image.new("RGBA", (canvaswidth, canvasheight))
+
         for i in range(w):
             for j in range(h):
                 input_file = common.get_image_file_name(name, i, j)

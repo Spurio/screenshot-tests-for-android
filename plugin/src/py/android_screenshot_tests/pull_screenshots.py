@@ -508,6 +508,7 @@ def pull_metadata(package, dir, adb_puller):
     metadata_file = android_path_join(
         root_screenshot_dir, package, "screenshots-default/metadata.json"
     )
+
     old_metadata_file = android_path_join(
         OLD_ROOT_SCREENSHOT_DIR, package, "app_screenshots-default/metadata.json"
     )
@@ -549,7 +550,6 @@ def pull_all(package, dir, test_run_id, adb_puller):
 
 
 def pull_filtered(package, dir, adb_puller, test_run_id, filter_name_regex=None):
-    print('package %s \n dir %s' % (package , dir))
     device_dir = pull_metadata(package, dir, adb_puller=adb_puller)
     _validate_metadata(dir)
     metadata.filter_screenshots(
@@ -597,7 +597,8 @@ def pull_screenshots(
     test_img_api=None,
     old_imgs_data=None,
     failure_dir=None,
-    diff=False
+    diff=False,
+    open_html=False,
 ):
 
     if not perform_pull and temp_dir is None:
@@ -629,7 +630,6 @@ def pull_screenshots(
     if verify:
         path_to_html = generate_html(temp_dir, test_img_api, old_imgs_data, diff, device_name)
     record_dir = join(record, device_name) if record and device_name else record
-    print('record_dir: %s' % record_dir)
     verify_dir = join(verify, device_name) if verify and device_name else verify
     if failure_dir:
         failure_dir = join(failure_dir, device_name) if device_name else failure_dir
@@ -759,6 +759,7 @@ def main(argv):
             adb_puller=SimplePuller(puller_args),
             device_name_calculator=device_calculator_list[index],
             failure_dir=opts.get("--failure-dir"),
+            open_html=opts.get("--open-html"),
             diff=opts.get("--diff"),
             old_imgs_data=opts.get("--old_imgs_data"),
             test_img_api=opts.get("--test_img_api")

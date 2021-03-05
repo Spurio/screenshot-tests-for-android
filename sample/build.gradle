@@ -38,8 +38,7 @@ buildscript {
   dependencies {
     classpath plugs.agp
     classpath plugs.kotlin
-    classpath 'io.spur.testing.screenshot:plugin:1.0.0'
-//    classpath plugs.screenshot
+    classpath plugs.screenshot
   }
 }
 

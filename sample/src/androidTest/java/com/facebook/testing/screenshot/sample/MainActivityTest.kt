@@ -25,7 +25,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import androidx.test.rule.GrantPermissionRule
-//import com.facebook.testing.screenshot.Screenshot
 import io.spur.testing.screenshot.Screenshot
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
@@ -49,53 +48,53 @@ class MainActivityTest {
     makeScreenshot(activity)
   }
 
+  @Test
+  fun mainActivityTestSettingsOpen() {
+    val activity = activityTestRule.launchActivity(null)
+    val floatingActionButton = onView(allOf<View>(withId(R.id.fab), isDisplayed()))
+    floatingActionButton.perform(click())
+
+    openActionBarOverflowOrOptionsMenu(activity)
+    makeScreenshot(activity)
+  }
+
 //  @Test
-//  fun mainActivityTestSettingsOpen() {
-//    val activity = activityTestRule.launchActivity(null)
-//    val floatingActionButton = onView(allOf<View>(withId(R.id.fab), isDisplayed()))
-//    floatingActionButton.perform(click())
-//
-//    openActionBarOverflowOrOptionsMenu(activity)
-//    makeScreenshot(activity)
+//  fun mainActivityTestFabWithEspresso() {
+//    activityTestRule.launchActivity(null)
+//    onView(withId(R.id.fab)).perform(screenshot("fab"))
 //  }
-//
-////  @Test
-////  fun mainActivityTestFabWithEspresso() {
-////    activityTestRule.launchActivity(null)
-////    onView(withId(R.id.fab)).perform(screenshot("fab"))
-////  }
-//
-//  @Test
-//  fun errorTextShouldBeRed() {
-//    val intent = MainActivity.intent(MainActivity.Status.ERROR)
-//    val activity = activityTestRule.launchActivity(null)
-//
-//    makeScreenshot(activity)
-//
-//  }
-//
-//  @Test
-//  fun warningTextShouldBeYellow() {
-//    val intent = MainActivity.intent(MainActivity.Status.WARNING)
-//    val activity = activityTestRule.launchActivity(intent)
-//
-//    makeScreenshot(activity)
-//
-//  }
-//
-//  @Test
-//  fun okTextShouldBeGreen() {
-//    val intent = MainActivity.intent(MainActivity.Status.OK)
-//    val activity = activityTestRule.launchActivity(null)
-//
-//    makeScreenshot(activity)
-//
-//  }
-//
-//  @Test
-//  fun testScreenshotEntireActivityWithoutAccessibilityMetadata() {
-//    val activity = activityTestRule.launchActivity(null)
-//    makeScreenshot(activity)
-//
-//  }
+
+  @Test
+  fun errorTextShouldBeRed() {
+    val intent = MainActivity.intent(MainActivity.Status.ERROR)
+    val activity = activityTestRule.launchActivity(null)
+
+    makeScreenshot(activity)
+
+  }
+
+  @Test
+  fun warningTextShouldBeYellow() {
+    val intent = MainActivity.intent(MainActivity.Status.WARNING)
+    val activity = activityTestRule.launchActivity(intent)
+
+    makeScreenshot(activity)
+
+  }
+
+  @Test
+  fun okTextShouldBeGreen() {
+    val intent = MainActivity.intent(MainActivity.Status.OK)
+    val activity = activityTestRule.launchActivity(null)
+
+    makeScreenshot(activity)
+
+  }
+
+  @Test
+  fun testScreenshotEntireActivityWithoutAccessibilityMetadata() {
+    val activity = activityTestRule.launchActivity(null)
+    makeScreenshot(activity)
+
+  }
 }

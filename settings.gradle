@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-include 'core', 'sample'//, 'plugin'
-includeBuild 'plugin'
+include 'core', 'sample', 'plugin'
+//includeBuild 'plugin'
