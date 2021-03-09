@@ -2,7 +2,7 @@ apply plugin: 'maven-publish'
 
 
 def githubProperties = new Properties()
-githubProperties.load(new FileInputStream(rootProject.file("gradle/publishing/github.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
+githubProperties.load(new FileInputStream(rootProject.file("local.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 afterEvaluate {
   publishing {
     publications {

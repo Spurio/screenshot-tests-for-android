@@ -17,7 +17,7 @@
 buildscript {
 
   def githubProperties = new Properties()
-  githubProperties.load(new FileInputStream(rootProject.file("gradle/publishing/github.properties")))
+  githubProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
   apply from: rootProject.file('fbVersions.gradle')
   repositories {
@@ -45,7 +45,7 @@ buildscript {
 allprojects {
 
   def githubProperties = new Properties()
-  githubProperties.load(new FileInputStream(rootProject.file("gradle/publishing/github.properties")))
+  githubProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
   repositories {
     maven {
